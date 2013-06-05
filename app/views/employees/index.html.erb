@@ -1,0 +1,29 @@
+<h1>الموظفين</h1>
+
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>الإسم</th>
+    <th>العمر</th>
+    <th>البريد</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= employee.name %></td>
+    <td><%= employee.age %></td>
+    <td><%= employee.email %></td>
+    <td><%= link_to 'تعديل', edit_employee_path(employee) %></td>
+    <td><%= link_to 'حذف', employee, method: :delete, data: { confirm: 'هل تريد حذف بيانات الموظف ?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'موظف جديد', new_employee_path , :class => "link btn-large"%>
+
+<br/>
+<br/>
+<br/>

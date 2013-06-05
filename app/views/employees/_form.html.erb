@@ -1,0 +1,24 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2>يجب إدخال جميع البيانات المطلوبة : <%= pluralize(@employee.errors.count, "error") %> </h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name , :placeholder => "الإسم"%>
+     <%= f.number_field :age , :placeholder => "العمر"%>
+      <%= f.text_field :email , :placeholder => "البريد الإلكتروني" %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit ' حفظ البيانات ' , :class => "btn large"%>
+  </div>
+  
+<% end %>
